@@ -1,0 +1,42 @@
+<div class="container">
+    <header class="row text-center">
+      <div class="col logo">
+		<td><a href="/auth/page" routerLink="/auth/page"> <img src="../../../assets/img/2560px-Capgemini_Logo.svg.png" /></a></td>
+       
+      </div>
+    </header>
+    <main class="main row">
+      <div class="left col">
+        <img src="../../../assets/img/get-the-future-you-want.jpg" alt="girl-reading-a-book"/>
+      </div>
+      <div class="right col">
+<div id="signup-box">
+	<h2>Signup Here</h2>
+	<div style="color : red" *ngIf='error'>{{error}}</div>
+	
+	<form name='signinForm' (submit)="doSignin()" class="sign-up">
+		<table>
+			<tr>
+				<td>username:</td>
+				<td><input type='text' name='username' [(ngModel)]="username" class="form-control"></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type='password' name='password' [(ngModel)]="password" class="form-control"/></td>
+			</tr>
+			<tr>
+				<td><input name="submit" type="submit" value="Signin"  class="btn social btn btn-primary" /></td>
+				<td>Don't have account? <a href="/auth/signup" routerLink="/auth/signup">Signup</a></td>
+			
+			</tr>
+		</table>
+	</form>
+</div>
+
+
+
+</div>
+
+
+</main>
+</div>

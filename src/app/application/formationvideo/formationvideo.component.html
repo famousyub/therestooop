@@ -1,0 +1,44 @@
+
+<app-header></app-header>
+
+
+    
+
+
+<div id="toast"></div>
+<div id="toast-cart"></div>
+<div class="container">
+  <h1>Formation</h1>
+  <input type="text" [(ngModel)]="searchText" placeholder="Search">
+  <hr>
+  <br>
+  <div class="row">
+  <div class="col-lg-4" *ngFor="let vid of formations | pipeformation: searchText">
+    <div class="card" style="width: 18rem;">
+      <span id="heart" class="heart"><i onclick="wishList()" class="fas fa-heart"></i></span>
+      <div class="vid_thumbainl">
+        <a [routerLink]="['/vid/', vid.id]" title="{{vid.id}}">
+            <video class="player" id="video video_box" src="{{vid.url_}}" controls height="280px" width="280px"></video>
+            <span class="vid-time"> {{vid.tagy}}</span>
+            <p>
+                {{vid.cat}}
+            </p>
+            <span class="watch_later">
+                <i class="icon-watch_later_fill"></i>
+               
+            </span>
+        </a>	
+    </div><!--vid_thumbnail end-->
+  <div class="card-body">
+    <a href="#" [routerLink]="['/vid/', vid.id]" ><div></div></a>
+    <hr>
+    <div>
+      <h5 class="card-title">{{vid.description}}</h5>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  </div>
+</div>

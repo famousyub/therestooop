@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Frontend</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="./assets/images/Favicon.png">
+<link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/flatpickr.min.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/fontello.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/fontello-codes.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/thumbs-embedded.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/responsive.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/color.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="mat-typography" background="./assets/img/get-the-future-you-want.jpg">
+
+  <div class="wrapper hp_1">
+  <app-root></app-root>
+
+</div>
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+function readFile(file) {
+  var reader = new FileReader();
+  var type = file.type;
+  
+  reader.onload = function (e) {
+    var img = document.createElement('img');
+    img.src = reader.result;
+    preSizeImage(img, type, 300, 300);
+  }
+  
+  reader.readAsDataURL(file, type);
+}
+
+function preSizeImage(img, type, MAX_HEIGHT, MAX_WIDTH) {
+  var canvas     = document.createElement('canvas'),
+      ctx        = canvas.getContext('2d'),
+      MAX_WIDTH  = MAX_WIDTH || 150,
+      MAX_HEIGHT = MAX_HEIGHT || 150,
+      width      = img.width,
+      height     = img.height,
+      fileType   = type || "image/png";
+
+  if (width > height) {
+    if (width > MAX_WIDTH) {
+      height *= MAX_WIDTH / width;
+      width = MAX_WIDTH;
+    }
+  } else {
+    if (height > MAX_HEIGHT) {
+      width *= MAX_HEIGHT / height;
+      height = MAX_HEIGHT;
+    }
+  }
+  
+  canvas.width = width;
+  canvas.height = height;
+  ctx.drawImage(img, 0, 0, width, height);
+  
+  var dataURL = canvas.toDataURL(fileType);
+  localStorage.clear();
+  localStorage.setItem('image:preview', dataURL);
+  previewImage(dataURL, '.image-preview');
+}
+
+function previewImage(dataURL, selector) {
+  var backgroundImage = 'url(' + dataURL + ')';
+  $(selector).css('background-image', backgroundImage);
+}
+
+$('#file-input').on('change', function () {
+  var file = this.files[0];
+  readFile(file);
+});
+
+
+  const media = document.querySelector("video");
+const controls = document.querySelector(".controls");
+
+const play = document.querySelector(".play");
+const stop = document.querySelector(".stop");
+const rwd = document.querySelector(".rwd");
+const fwd = document.querySelector(".fwd");
+
+const timerWrapper = document.querySelector(".timer");
+const timer = document.querySelector(".timer span");
+const timerBar = document.querySelector(".timer div");
+
+  </script>
+
+  <script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/popper.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/flatpickr.js"></script>
+<script src="./assets/js/script.js"></script>
+
+
+<script>
+
+let db;
+const dbName = 'myIndexedDB';
+
+const openRequest = indexedDB.open(dbName, 1);
+
+openRequest.onupgradeneeded = function(event) {
+  db = event.target.result;
+  const objectStore = db.createObjectStore('data', { keyPath: 'key' });
+};
+
+openRequest.onsuccess = function(event) {
+  db = event.target.result;
+};
+
+openRequest.onerror = function(event) {
+  console.error('Error opening IndexedDB:', event.target.error);
+};
+
+
+const localStorageData = localStorage.getItem('token');
+if (localStorageData) {
+  const transaction = db.transaction('data', 'readwrite');
+  const dataStore = transaction.objectStore('data');
+  
+  const data = JSON.parse(localStorageData);
+  data.forEach(item => {
+    dataStore.put({ key: item.key, value: item.value });
+  });
+
+  function saveToIndexedDB(key, value) {
+  const transaction = db.transaction('data', 'readwrite');
+  const dataStore = transaction.objectStore('data');
+  dataStore.put({ key, value });
+}
+function getFromIndexedDB(key) {
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction('data', 'readonly');
+    const dataStore = transaction.objectStore('data');
+    const request = dataStore.get(key);
+
+    request.onsuccess = function(event) {
+      const result = event.target.result;
+      if (result) {
+        resolve(result.value);
+      } else {
+        reject('Key not found in IndexedDB');
+      }
+    };
+
+    request.onerror = function(event) {
+      reject('Error getting data from IndexedDB');
+    };
+  });
+}
+
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+
+
+body {
+
+    background-image : "../../../assets/img/get-the-future-you-want.jpg";
+
+}
+
+.card {
+    border: 1px solid var(--color-three);
+    margin-bottom: 20px;
+    transition: border 0.1s, transform 0.3s;
+}
+
+.card:hover {
+    border: 1px solid var(--color-two);
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+.card .card-body h2 {
+    color: var(--color-two);
+}
+
+.card img:hover {
+  opacity: 0.6;
+}
+
+.card-p {
+    color: var(--color-three);
+}
+
+.card-p i {
+    color: var(--color-two);
+    margin-right: 8px;
+}
+
+.controls {
+    visibility: hidden;
+    opacity: 0.5;
+    width: 400px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -200px;
+    background-color: black;
+    box-shadow: 3px 3px 5px black;
+    transition: 1s all;
+    display: flex;
+  }
+  
+  .player:hover .controls,
+  .player:focus-within .controls {
+    opacity: 1;
+  }
+
+  button:before {
+    font-family: HeydingsControlsRegular;
+    font-size: 20px;
+    position: relative;
+    content: attr(data-icon);
+    color: #aaa;
+    text-shadow: 1px 1px 0px black;
+  }
+  .timer {
+    line-height: 38px;
+    font-size: 10px;
+    font-family: monospace;
+    text-shadow: 1px 1px 0px black;
+    color: white;
+    flex: 5;
+    position: relative;
+  }
+  
+  .timer div {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 38px;
+    z-index: 2;
+  }
+  
+  .timer span {
+    position: absolute;
+    z-index: 3;
+    left: 19px;
+  }
+      

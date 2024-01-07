@@ -1,0 +1,77 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="card shadow">
+                <img src={{formation?.thumbnail}} class="card-img-top" alt={{formation?.id}}>
+                <video class="player" id="video video_box" src="{{vid.url_}}" controls height="280px" width="280px"></video>
+                <div class="card-body">
+                    <h2 class="card-title">{{formation?.id}}</h2>
+                    <p class="card-text">{{formation?.description}}</p>
+
+
+
+
+                </div>
+                <div class="card-body card-p">
+
+                    <div class="row">
+                        <div class="col col-xs-4 ">
+                            <i class="far fa-comments"></i> 
+                        </div>
+                        <div class="col col-xs-4 ">
+                            <i class="far fa-heart"></i> 
+                        </div>
+                        <div class="col col-xs-4">
+                           
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+
+
+    </div>
+
+
+
+
+   
+      
+
+    <div class="vidz-row">
+        <div class="container">
+            <div class="vidz_sec">
+                <h3>Formation {{formation.id}}</h3>
+                <div class="vidz_list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                            <div class="videoo">
+                                <div class="vid_thumbainl">
+                                    <a [routerLink]="['/vid/', vid.id]" title="{{vid.id}}">
+                                        <img src={{formation?.thumbnail}} class="card-img-top" alt={{formation?.id}}>
+                                        <video class="player" id="video video_box" src="{{vid.url_}}" controls height="280px" width="280px"></video>
+                                        <span class="vid-time"> {{vid.tagy}}</span>
+                                        <span class="watch_later">
+                                            <i class="icon-watch_later_fill"></i>
+                                            
+                                        </span>
+                                    </a>	
+                                </div><!--vid_thumbnail end-->
+                                <div class="video_info">
+                                    <h3> {{vid.description}}</h3>
+                                  
+                                    <span>{{vid.tag}}.<small class="posted_dt">{{vid.id}}</small></span>
+                                </div>
+                            </div><!--videoo end-->
+                        </div>
+                     
+                </div><!--vidz_list end-->
+            </div><!--vidz_videos end-->
+        </div>
+    </div><!--vidz-row end-->
+</div>

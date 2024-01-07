@@ -1,0 +1,33 @@
+
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<app-menu></app-menu>
+
+
+
+
+<div class="container-fluid">
+    <div class="row mainContent">
+      
+      <div class="col-md-5 col-md-offset-1">
+        <div class="box">
+
+            <app-videosection [vid]="formationdetails" [formation] = "formation"></app-videosection>
+        </div>      
+      </div>
+      
+    
+      
+      
+    </div>
+  </div>
+  <div class="footer">
+    <button (click) ="downloadFiled()"  class="btn btn-primary">
+        download 
+    </button>
+    
+    
+    <button (click) ="addToWishlist()" class="btn btn-success">
+        add to favourite 
+    </button>
+  </div>

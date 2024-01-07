@@ -1,0 +1,99 @@
+<section class="vds-main">
+    <div class="vidz-row">
+        <div class="container">
+            <div class="vidz_sec">
+                <h3>Formation Videos</h3>
+                <input type="text" [(ngModel)]="searchText" placeholder="Search">
+                <div class="vidz_list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" *ngFor="let vid of formations | pipeformation: searchText">
+                            <div class="videoo">
+                                <div class="vid_thumbainl">
+                                    <a [routerLink]="['/vid/', vid.id]" title="{{vid.id}}">
+                                        <video class="player" id="video video_box" src="{{vid.url_}}" controls height="280px" width="280px"></video>
+                                        <span class="vid-time"> {{vid.tagy}}</span>
+                                        <span class="watch_later">
+                                            <i class="icon-watch_later_fill"></i>
+                                           
+                                        </span>
+                                    </a>	
+                                </div><!--vid_thumbnail end-->
+                                <div class="video_info">
+                                    <h3><a [routerLink]="['/vid/', vid.id]" title="{{vid.id}}">  {{vid.description}}</a></h3>
+                                    <h4><a [routerLink]="['/vid/', vid.id]" title="{{vid.id}}">{{vid.tag}}</a> <span class="verify_ic"><i class="icon-tick"></i></span></h4>
+                                    <span>{{vid.tag}}.<small class="posted_dt">
+                                        
+                                        <p style="color:gold">{{vid.cat}}</p></small></span>
+                                </div>
+                            </div><!--videoo end-->
+                        </div>
+                    
+                    </div>
+                </div><!--vidz_list end-->
+            </div><!--vidz_videos end-->
+        </div>
+    </div><!--vidz-row end-->
+    <div class="vidz-row">
+        <div class="container">
+            <div class="vidz_sec">
+                <h3>Formation all </h3>
+                <a href="#" title="" class="view-btn">View all</a>
+                <div class="vidz_list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" *ngFor="let vid of mediashare | pipeformation: searchText">
+                            <div class="videoo">
+                                <div class="vid_thumbainl">
+                                    <a href="#" title="">
+                                        <video class="player" id="video video_box" src="{{vid.url_}}" controls  height="280px" width="280px"></video>
+                                        <span class="vid-time"> {{vid.tagy}}</span>
+                                        <span class="watch_later">
+                                            <i class="icon-watch_later_fill"></i>
+                                        </span>
+                                    </a>	
+                                </div><!--vid_thumbnail end-->
+                                <div class="video_info">
+                                    <h3><a href="#" title="">  {{vid.description}}</a></h3>
+                                    <h4><a href="Single_Channel_Home.html" title="">{{vid.tag}}</a> <span class="verify_ic"><i class="icon-tick"></i></span></h4>
+                                    <span>{{vid.tag}}.<small class="posted_dt"></small></span>
+                                </div>
+                            </div><!--videoo end-->
+                        </div>
+                      
+                    </div>
+                </div><!--vidz_list end-->
+            </div><!--vidz_videos end-->
+        </div>
+    </div><!--vidz-row end-->
+    <div class="vidz-row">
+        <div class="container">
+            <div class="vidz_sec">
+                <h3>Events</h3>
+                <div class="vidz_list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"  *ngFor="let vid of events | pipeformation: searchText">
+                            <div class="videoo">
+                                <div class="vid_thumbainl">
+                                    <a href="#" title="">
+                                        <video class="player" id="video video_box" src="{{vid.url_}}" controls  height="280px" width="280px"></video>
+                                        <span class="vid-time"> {{vid.tagy}}</span>
+                                        <span class="watch_later">
+                                            <i class="icon-watch_later_fill"></i>
+                                        </span>
+                                    </a>	
+                                </div><!--vid_thumbnail end-->
+                                <div class="video_info">
+                                    <h3><a href="#" title="">  {{vid.description}}s</a></h3>
+                                    <h4><a href="Single_Channel_Home.html" title="">{{vid.tag}}</a> <span class="verify_ic"><i class="icon-tick"></i></span></h4>
+                                    <span>{{vid.tag}}.<small class="posted_dt"></small></span>
+                                </div>
+                            </div><!--videoo end-->
+                        </div>
+                 
+                    </div>
+                </div><!--vidz_list end-->
+            </div><!--vidz_videos end-->
+        </div>
+    </div><!--vidz-row end-->
+ 
+
+</section><!--vds-main end-->

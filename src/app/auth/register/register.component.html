@@ -1,0 +1,49 @@
+
+<div class="container">
+    <header class="row text-center">
+      <div class="col logo">
+       
+		<td><a href="/auth/page" routerLink="/auth/page"> <img src="../../../assets/img/2560px-Capgemini_Logo.svg.png" /></a></td>
+      </div>
+    </header>
+    <main class="main row">
+      <div class="left col">
+        <img src="../../../assets/img/get-the-future-you-want.jpg" alt="girl-reading-a-book"/>
+      </div>
+      <div class="right col">
+<div id="signup-box">
+	<h2>Signup Here</h2>
+	<div style="color : red" *ngIf='error'>{{error}}</div>
+	<div style="color : green" *ngIf='success'>{{success}}</div>
+	<form name='signupForm' (submit)="doSignup()" class="sign-up">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><input type='text' name='username' [(ngModel)]="username"  class="form-control"  required></td>
+			</tr>
+            <tr>
+				<td>email:</td>
+				<td><input type='text' name='email' [(ngModel)]="email"  class="form-control"  required></td>
+			</tr>
+            <tr>
+				<td>name:</td>
+				<td><input type='text' name='name' [(ngModel)]="name"   class="form-control"  required></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type='password' name='password' [(ngModel)]="password"  class="form-control"    required ></td>
+			</tr>
+			
+			<tr>
+				<td><input name="submit" type="submit" value="Signup"  class="btn social btn btn-primary"/></td>
+				<td>Have account? <a href="/auth/signin" routerLink="/auth/signin">Signin</a></td>
+			
+				
+			</tr>
+		</table>
+	</form>
+</div>
+
+	  </div>
+</main>
+</div>

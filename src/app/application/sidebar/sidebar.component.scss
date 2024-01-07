@@ -1,0 +1,46 @@
+
+  .sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding-top: 20px;
+  }
+  
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: auto;
+  }
+  
+  .menu {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: background-color 0.3s;
+  }
+  
+  .menu li a:hover {
+    background-color: #444;
+  }
+  
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  
